@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,600&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.titulo, .container {
+    display: flex;
+    justify-content: center;   
+    padding-top: 40px;
+    padding-bottom: 50px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    
+    
+}
+
+.piedra {
+    height: 200px;
+    padding-right: 40px;
+    
+}
+
+.papel {
+    height: 200px;
+    padding-right: 30px;
+
+}
+
+.tijera {
+    height: 200px;
+}
