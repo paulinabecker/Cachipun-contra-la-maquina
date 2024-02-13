@@ -1,71 +1,62 @@
-JS
-//Genera un número aleatorio entre un rango de enteros
-function jugar(minimo, maximo)
-{
-    var numero = Math.floor( Math.random() * (maximo - minimo + 1) + minimo );
-    return numero;
+let cantJugadas = prompt("¿Cuántas veces quieres jugar?");
+
+let ptosHumano = 0;
+let ptosRobot = 0;
+
+for (let i = 0; i < cantJugadas; i++) {
+  let jugadaHumano = parseInt(
+    prompt("Elige tu jugada:\nPiedra: 0\nPapel: 1\nTijera: 2", 0)
+  );
+  let jugadaRobot = Math.floor(Math.random() * 3);
+
+  switch (jugadaHumano) {
+    case 0:
+      if (jugadaRobot === 0) {
+        alert("El robot eligió piedra. ¡Esto es un empate!.");
+      } else if (jugadaRobot === 1) {
+        alert("El robot eligió papel. ¡Lo siento, el robot te ha ganado!.");
+        ptosRobot++;
+      } else if (jugadaRobot === 2) {
+        alert("El robot eligió tijeras. ¡Felicidades, le has ganado al robot!");
+        ptosHumano++;
+      }
+      break;
+
+    case 1:
+      if (jugadaRobot === 0) {
+        alert("El robot eligió piedra. ¡Felicidades, le has ganado al robot!");
+        ptosHumano++;
+      } else if (jugadaRobot === 1) {
+        alert("El robot eligió papel. ¡Esto es un empate!");
+      } else if (jugadaRobot === 2) {
+        alert("El robot eligió tijeras. ¡Lo siento, el robot te ha ganado!");
+        ptosRobot++;
+      }
+      break;
+
+    case 2:
+      if (jugadaRobot === 0) {
+        alert("El robot eligió piedra. ¡Lo siento, el robot te ha ganado!");
+        ptosRobot++;
+      } else if (jugadaRobot === 1) {
+        alert("El robot eligió papel. ¡Felicidades, le has ganado al robot!");
+        puntajeUsuario++;
+      } else if (jugadaRobot === 2) {
+        alert("El robot eligió tijeras. ¡Esto es un empate!");
+      }
+      break;
+
+    default:
+      alert("La opción ingresada no existe. Inténtalo nuevamente");
+      break;
+  }
 }
 
-var piedra = 0;
-var papel = 1;
-var tijera = 2;
-
-var opciones = ["Piedra", "Papel", "Tijera"];
-
-var jugadaHumano;
-var jugadaRobot = jugar(0,2);
-
-jugadaHumano = prompt("¿Qué eliges?\nPiedra: 0\nPapel: 1\nTijera: 2", 0);
-
-alert("Elegiste " + opciones[jugadaHumano]);
-alert("El robot eligió " + opciones[jugadaRobot]);
-
-if(jugadaHumano == piedra)
-{
-    if(jugadaRobot == piedra)
-    {
-        alert("¡Esto es un empate!");
-    }
-    else if(jugadaRobot == papel)
-    {
-        alert("¡Lo siento, el robot te ha ganado!");
-    }
-    else if(jugadaRobot == tijera)
-    {
-        alert("¡Felicidades, le has ganado a un robot!");
-    }
+if (ptosHumano > ptosRobot) {
+  alert("¡Felicitaciones, has ganado la partida!.");
+} else if (ptosRobot > ptosHumano) {
+  alert("¡Lo siento!, el robot ha ganado la partida.");
+} else if (ptosRobot == ptosHumano) {
+  alert("¡Han empatado la partida!.");
 }
-else if(jugadaHumano == papel)
-{
-    if(jugadaRobot == piedra)
-    {
-        alert("¡Felicidades, le has ganado a un robot!");
-    }
-    else if(jugadaRobot == papel)
-    {
-        alert("¡Esto es un empate!");
-    }
-    else if(jugadaRobot == tijera)
-    {
-        alert("¡Lo siento, el robot te ha ganado!");
-    }
-}
-else if(jugadaHumano == tijera)
-{
-    if(jugadaRobot == piedra)
-    {
-        alert("¡Lo siento, el robot te ha ganado!");
-    }
-    else if(jugadaRobot == papel)
-    {
-        alert("¡Felicidades, le has ganado a un robot!");
-    }
-    else if(jugadaRobot == tijera)
-    {
-        alert("¡Esto es un empate!");
-    }
-}
-else
-{
-    alert("La opción ingresada no existe. Inténtalo nuevamente");
-}
+
